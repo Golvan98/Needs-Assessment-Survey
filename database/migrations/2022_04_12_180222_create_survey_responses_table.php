@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey__responses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('survey_responses', function (Blueprint $table) {
+            $table->id(); 
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('survey_id');
             $table->timestamps();
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey__responses');
+        Schema::dropIfExists('survey_responses');
     }
 };

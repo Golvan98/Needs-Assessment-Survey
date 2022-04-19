@@ -19,4 +19,9 @@ class Survey_Responses extends Model
     {
         return $this->beongsTo(Survey::class);
     }
+    public function Survey_Response_Answers()
+    {
+        return $this->hasMany(Survey_Response_Answers::class);
+    }
+    
 }
