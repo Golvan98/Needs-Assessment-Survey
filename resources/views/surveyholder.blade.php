@@ -13,13 +13,13 @@
         </div>
     
 
-            @foreach($survey->question as $surveyquestion)
+            @foreach($survey->surveyquestion as $surveyquestions)
 
                     <div class="flex-auto space-y-2"> 
                     <form method="POST" action="#"> 
                     @csrf
                     @method('DELETE')
-                    {{$surveyquestion->question}} 
+                    {{$surveyquestions->question}} 
 
                     <input class=""> 
                     </input>

@@ -14,7 +14,7 @@
                 <div>
                      {{$survey->survey_name}} 
                      <section class="hero container mx-auto flex justify-center">
-                        <img src="{{ asset('storage/manage.png') }}" alt="description of myimage"> 
+                        <img src="{{ asset('storage/manage.png') }}" alt="description of myimageee"> 
                     </section>
                 </div>        
 

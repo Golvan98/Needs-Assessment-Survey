@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
+use App\Models\Survey;
+use App\Models\SurveyQuestion;
+use App\Models\SurveyResponseAnswer;
+use App\Models\SurveyResponses;
+use App\Models\Student;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
