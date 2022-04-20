@@ -4,14 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Type;
-use App\Models\Answer;
-use App\Models\question_survey;
 use App\Models\Survey;
-use App\Models\Question;
-use App\Models\surveyquestion_answer;
+use App\Models\SurveyQuestion;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -22,9 +19,25 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
     
+      $surveys = Survey::factory(5)->create();
 
+      foreach ($surveys as $survey) {
+        $questions = SurveyQuestion::factory(10)->create();
+        
+        foreach ($questions as $question) {
+          $question->update([
+            'survey_id' => $survey->id,
+          ]);
+        }
+      }
 
-      /*
+     
+
+       
+
+    }
+}
+ /*
         $questions = Question::factory(6)->create(); 
 
         
@@ -33,8 +46,6 @@ class DatabaseSeeder extends Seeder
         $survey->question()->sync([1,2]);
      
 */
-      
-
 /*
         $surveys = Survey::factory(6)->create(); 
 
@@ -42,8 +53,3 @@ class DatabaseSeeder extends Seeder
         $question->first()->survey()->sync([1, 2]); */
 
        
-
-       
-
-    }
-}

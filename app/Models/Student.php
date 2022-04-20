@@ -9,8 +9,8 @@ class Student extends Model
 {
     use HasFactory;
 
-    public function Survey_Responses()
+    public function SurveyResponses()
     {
-        return $this->hasMany(Survey_Responses::class);
+        return $this->hasMany(SurveyResponses::class);
     }
 }

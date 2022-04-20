@@ -17,11 +17,11 @@ class Survey_Responses extends Model
 
     public function Survey()
     {
-        return $this->beongsTo(Survey::class);
+        return $this->belongsTo(Survey::class);
     }
-    public function Survey_Response_Answers()
+    public function SurveyResponseAnswers()
     {
-        return $this->hasMany(Survey_Response_Answers::class);
+        return $this->hasMany(SurveyResponseAnswers::class);
     }
     
 }

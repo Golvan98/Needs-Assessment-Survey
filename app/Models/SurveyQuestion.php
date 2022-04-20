@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Survey_Question extends Model
+class SurveyQuestion extends Model
 {
     use HasFactory;
     public function Survey ()
     {
-        return $this->BelongsTo(Survey::class);
+        return $this->belongsTo(Survey::class);
     }
 
-    public function Survey_Response_Answers()
+    public function SurveyResponseAnswers()
     {
-        return $this->hasMany(Survey_Response_Answers::class);
+        return $this->hasMany(SurveyResponseAnswers::class);
     }
 }

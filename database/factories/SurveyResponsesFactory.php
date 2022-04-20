@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Survey;
+use App\Models\SurveyQuestion;
+use App\Models\Student;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Survey_Responses>
  */
