@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Survey_Responses extends Model
+class SurveyResponses extends Model
 {
     use HasFactory;
 
+    protected $fillable =['student_id', 'survey_id', 'answer', 'survey_response_id'];
 
     public function Student()
     {

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('survey_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('survey_id');
+            $table->foreignId('survey_id')->nullable();
             $table->char('question');
             $table->string('type');
             $table->string('category');

@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('survey_responses', function (Blueprint $table) {
             $table->id(); 
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('survey_id')->nullable();
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('student_id')

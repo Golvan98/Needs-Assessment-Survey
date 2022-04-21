@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Survey;
 use App\Models\SurveyQuestion;
 use App\Models\Student;
+use App\Models\SurveyResponses;
+use App\Models\SurveyResponseAnswers;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DatabaseSeeder extends Seeder
@@ -19,17 +21,55 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
     
-      $surveys = Survey::factory(5)->create();
+      $surveys = Survey::factory(2)->create();
+     
+     
 
-      foreach ($surveys as $survey) {
-        $questions = SurveyQuestion::factory(10)->create();
+      foreach ($surveys as $survey) 
+      {
+        $questions = SurveyQuestion::factory(2)->create();
+       
         
-        foreach ($questions as $question) {
+        foreach ($questions as $question) 
+        {
+          
+          $surveyresponseanswers = SurveyResponseAnswers::factory(2)->create();
           $question->update([
             'survey_id' => $survey->id,
           ]);
+
+              foreach($surveyresponseanswers as $surveyresponseanswer)
+              {
+                $students = Student::factory(2)->create();
+                $surveyresponses = SurveyResponses::factory(2)->create(); 
+                
+                foreach($surveyresponses as $surveyresponse)
+                {
+                  $surveyresponseanswer->update([
+                    'survey_question_id' => $question->id,
+                    'survey_response_id' => $surveyresponse->id,
+                ]); 
+                 
+                  foreach($students as $student)
+                  {
+                  $surveyresponse->update([
+                    'student_id' => $student->id,
+                    'survey_id' => $survey->id
+                  ]);
+                  } 
+                }           
+                         
+              }
+
+
         }
+
+       
+            
+
+      
       }
+      
       
 
     }
