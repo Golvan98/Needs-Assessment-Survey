@@ -40,11 +40,12 @@ class DatabaseSeeder extends Seeder
 
               foreach($surveyresponseanswers as $surveyresponseanswer)
               {
-                $students = Student::factory(2)->create();
+                
                 $surveyresponses = SurveyResponses::factory(2)->create(); 
                 
                 foreach($surveyresponses as $surveyresponse)
                 {
+                  $students = Student::factory(1)->create();
                   $surveyresponseanswer->update([
                     'survey_question_id' => $question->id,
                     'survey_response_id' => $surveyresponse->id,
