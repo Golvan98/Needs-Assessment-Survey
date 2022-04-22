@@ -28,52 +28,37 @@ class DatabaseSeeder extends Seeder
       foreach ($surveys as $survey) 
       {
         $questions = SurveyQuestion::factory(2)->create();
-       
         
+             
         foreach ($questions as $question) 
-        {
-          
+        {          
           $surveyresponseanswers = SurveyResponseAnswers::factory(2)->create();
           $question->update([
             'survey_id' => $survey->id,
-          ]);
-
-              foreach($surveyresponseanswers as $surveyresponseanswer)
-              {
-                
-                $surveyresponses = SurveyResponses::factory(2)->create(); 
-                
-                foreach($surveyresponses as $surveyresponse)
-                {
-                  $students = Student::factory(1)->create();
-                  $surveyresponseanswer->update([
-                    'survey_question_id' => $question->id,
-                    'survey_response_id' => $surveyresponse->id,
-                ]); 
-                 
-                  foreach($students as $student)
-                  {
-                  $surveyresponse->update([
-                    'student_id' => $student->id,
-                    'survey_id' => $survey->id
-                  ]);
-                  } 
-                }           
-                         
-              }
-
-
+          ]);               
+          foreach($surveyresponseanswers as $surveyresponseanswer)
+          {
+            $surveyresponses = SurveyResponses::factory(1)->create();           
+            foreach($surveyresponses as $surveyresponse)
+            {
+            $surveyresponseanswer->update([
+              'survey_response_id' => $surveyresponse->id,
+              'survey_question_id' => $question->id
+            ]);
+            }
+          }
         }
-
-       
-            
-
-      
+   
       }
-      
-      
+
+     
+
+
 
     }
+
+       
+
 }
  /*
         $questions = Question::factory(6)->create(); 
@@ -89,5 +74,3 @@ class DatabaseSeeder extends Seeder
 
         $question = Question::create(['id' => '1', 'question' => 'question yada yada']);
         $question->first()->survey()->sync([1, 2]); */
-
-       
