@@ -19,7 +19,7 @@ class SurveyResponseAnswersFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'answer' => $this->faker->sentence(),
         ];
     }
 }

@@ -19,7 +19,6 @@ class SurveyQuestionFactory extends Factory
     public function definition()
     {
         return [
-            'survey_id' => Survey::factory(),
             'question' => $this->faker->sentence(),
             'category' => $this->faker->word(),
             'type' => $this->faker->word(),
