@@ -30,9 +30,9 @@ Route::get('/survey/{surveys}', [SurveyController::class, 'showsurvey']);
 
 Route::get('/surveylist', [SurveyController::class, 'listsurvey']);
 
-Route::get('/surveyresults', [SurveyController::class, 'surveyresults']);
+Route::get('/surveyresults/', [SurveyController::class, 'surveyresults'])->name('MgaData');
 
-Route::get('/surveydata', [SurveyController::class, 'surveydata']);
+Route::get('/surveydata/{surveyquestioncategory}', [SurveyController::class, 'surveydata'])->name('tabledata');
 
 /*
 public function showsurvey(Survey $surveys, Question $questions)

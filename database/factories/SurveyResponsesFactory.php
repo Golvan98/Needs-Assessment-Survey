@@ -19,6 +19,7 @@ class SurveyResponsesFactory extends Factory
     public function definition()
     {
         return [
+            
             'status' => $this->faker->randomElement(['Inactive', 'In Progress']),
         ];
     }

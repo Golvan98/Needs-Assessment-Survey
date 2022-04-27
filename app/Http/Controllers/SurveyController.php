@@ -28,14 +28,24 @@ class SurveyController extends Controller
         return view('/surveylist')->with(['surveys' =>$surveys]);
     }
 
-    public function surveyresults()
+    public function surveyresults(SurveyQuestion $surveyquestion)
     {
-        return view('/surveyresults');
+        $surveyquestioncategories = SurveyQuestion::query()->distinct()->pluck('category');
 
+        
+
+        
+        
+
+
+        return view('/surveyresults')->with(['surveyquestion' => $surveyquestion, 'surveyquestioncategories' => $surveyquestioncategories]);
     }
 
-    public function surveydata()
+    public function surveydata($surveyquestioncategory)
     {
-        return view('/surveydata');
+
+        
+
+        return view('/surveydata')->with(['surveyquestioncategory' => $surveyquestioncategory]);
     }
 }

@@ -19,22 +19,19 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-    
-      $surveys = Survey::factory(3)->create();
-     
-     
+    {    
 
+      $surveys = Survey::factory(2)->create();
+          
       foreach ($surveys as $survey) 
       {
-        $questions = SurveyQuestion::factory(2)->create();
-                     
+        $questions = SurveyQuestion::factory(8)->create();                     
         foreach ($questions as $question) 
         {          
           $surveyresponseanswers = SurveyResponseAnswers::factory(3)->create();
           $question->update([
             'survey_id' => $survey->id,
-          ]);               
+                           ]);               
           foreach($surveyresponseanswers as $surveyresponseanswer)
                         {
                           $surveyresponses = SurveyResponses::factory(1)->create(); 
@@ -44,26 +41,18 @@ class DatabaseSeeder extends Seeder
                                 $surveyresponseanswer->update([
                                   'survey_response_id' => $surveyresponse->id,
                                   'survey_question_id' => $question->id
-                                ]);
-            
+                                                             ]);            
                                   foreach($students as $student)
                                   {
                                     $surveyresponse->update(['survey_id' => $survey->id,
                                     'student_id' => $student->id
-                                                          ]);
+                                                           ]);
                                   }
-
-                              }
-            
+                              }            
                         }
-        }
-   
+        }   
       }
-
-     
-
-
-
+    
     }
 
        

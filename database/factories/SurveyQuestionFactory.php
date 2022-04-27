@@ -20,7 +20,7 @@ class SurveyQuestionFactory extends Factory
     {
         return [
             'question' => $this->faker->sentence(),
-            'category' => $this->faker->word(),
+            'category' => $this->faker->randomElement(['Anxiety', 'Relationships', 'Self-Image', 'Bullying', 'Parent-Separation', 'Stress-Management', 'Peer Pressure', 'Anger-Management', 'Student-Teacher-Conflict', 'Physical-Disability', 'Motivation', 'Student-Teacher-Relationship', 'Cyberbullying', 'Physical-Psychological-Abuse', 'Mourning' ]),
             'type' => $this->faker->word(),
         ];
     }

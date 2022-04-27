@@ -27,7 +27,7 @@
                 
         </div>
         <div class="text-center  mr-2"> 
-            Anxiety
+            {{$surveyquestioncategory}}
         </div>
 
 
@@ -69,7 +69,7 @@
             </table>
             <br>
             <br>
-            <button class="bg-green-500 rounded-bl text-white ml-8 px-2"> Get Back </button>
+            <a href="surveyresults"> <button class="bg-green-500 rounded-bl text-white ml-8 px-2"> Get Back </button> </a>
         </div>
     </div>
 
