@@ -1,7 +1,6 @@
 <x-layout>
 
 
-<x-layout>
 
 
 <div id="body" class="bg-gray-300 flex-auto"> 
@@ -28,11 +27,11 @@
 
     
 
-                @foreach($surveyss as $survey)  
+                @foreach($surveys as $survey)  
                                
                     
                                  
-                <th> <a href="#"> <button  class="w-48 h-12 bg-gray-300 ml-2 mr-12 rounded-xl border border-black mt-2"> {{$survey->name}}	</th> </a>
+                <th> <a href="/viewsurvey/{{$survey->name}}"> <button  class="w-48 h-12 bg-gray-300 ml-2 mr-12 rounded-xl border border-black mt-2"> {{$survey->name}}	</th> </a>
                 @if($loop->iteration %4 ==0)
                 <tr>
                     @else
@@ -67,7 +66,6 @@
 
 
 
-</x-layout>
 
 
 

@@ -35,7 +35,14 @@ Route::get('/surveyresults/', [SurveyController::class, 'surveyresults'])->name(
 Route::get('/surveydata/{surveyquestioncategory}', [SurveyController::class, 'surveydata'])->name('tabledata');
 
 
+
+
 Route::get('viewsurveys', [SurveyController::class, 'viewsurveys']);
+
+Route::get('/viewsurvey/{survey}', [SurveyController::class, 'surveycategory']);
+
+Route::get('/viewsurveyresult/{questioncategory}', [SurveyController::class, 'viewsurveyresult']);
+
 /*
 public function showsurvey(Survey $surveys, Question $questions)
     {

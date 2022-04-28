@@ -23,7 +23,7 @@
         <article class="ml-4 flex-auto text-black font-bold text-left"> What would you like to do today?
             
             <div class="flex-auto text-center"> 
-            <a href="/viewsurveys"> 
+            <a href="/surveylist"> 
 
                     <section class="hero container mx-auto flex justify-center">
                         <img src="{{ asset('storage/manage.png') }}" alt="description of myimage"> 
@@ -42,7 +42,7 @@
             <article class="bg-white flex-auto text-center font-bold"> <br>
                  <div class="text-center"> 
                              
-                        <a href="surveyresults"> 
+                        <a href="viewsurveys"> 
                     <section class="hero container mx-auto flex justify-center">
                         <img src="{{ asset('storage/manageresult.png') }}" alt="description of myimage"> 
                     </section>

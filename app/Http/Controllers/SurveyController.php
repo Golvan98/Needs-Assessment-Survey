@@ -39,6 +39,24 @@ class SurveyController extends Controller
     }
 
 
+    public function surveycategory($survey)
+    {
+
+        $specificsurveyid = Survey::where('name', $survey)->pluck('id');
+
+        
+
+        $questioncategories = SurveyQuestion::where('survey_id', $specificsurveyid)->pluck('category')->unique();
+
+        
+
+        return view('surveycategory')->with(['survey' => $survey, 'questioncategories' => $questioncategories]);
+    }
+
+    public function viewsurveyresult($questioncategory)
+    {
+        return view('viewsurveyresult')->with(['questioncategory' => $questioncategory]);
+    }
 
 
     public function surveyresults(SurveyQuestion $surveyquestion)
