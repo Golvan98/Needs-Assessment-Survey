@@ -1,13 +1,15 @@
 <x-layout>
 
 
+<x-layout>
+
+
 <div id="body" class="bg-gray-300 flex-auto"> 
 
     <div class="bg-gray-500 mt-16">     
 
     
-        <article class="bg-gray-300 flex-auto text-black font-bold py-3"> &nbsp &nbsp &nbsp  Good Evening, Counselor!
-            <div class="">    </div>
+        <article class="bg-gray-300 flex-auto text-black font-bold py-3"> &nbsp &nbsp &nbsp  Which survey would you like to view?
             <div class="mt-2 border border-red-500"></div>
         
         </article>
@@ -26,11 +28,11 @@
 
     
 
-                @foreach($surveyquestioncategories as $surveyquestioncategory)  
+                @foreach($surveyss as $survey)  
                                
                     
                                  
-                <th> <a href="/surveydata/{{$surveyquestioncategory}}"> <button  class="w-48 h-12 bg-gray-300 ml-2 mr-12 rounded-xl border border-black mt-2"> {{$surveyquestioncategory}}	</th> </a>
+                <th> <a href="#"> <button  class="w-48 h-12 bg-gray-300 ml-2 mr-12 rounded-xl border border-black mt-2"> {{$survey->name}}	</th> </a>
                 @if($loop->iteration %4 ==0)
                 <tr>
                     @else
@@ -59,6 +61,13 @@
 </div>
 
 
+
+
+
+
+
+
+</x-layout>
 
 
 

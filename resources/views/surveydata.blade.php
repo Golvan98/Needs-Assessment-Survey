@@ -69,7 +69,7 @@
             </table>
             <br>
             <br>
-            <a href="surveyresults"> <button class="bg-green-500 rounded-bl text-white ml-8 px-2"> Get Back </button> </a>
+            <a href="{{ url()->previous() }}"> <button class="bg-green-500 rounded-bl text-white ml-8 px-2"> Get Back </button> </a>
         </div>
     </div>
 

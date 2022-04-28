@@ -34,6 +34,8 @@ Route::get('/surveyresults/', [SurveyController::class, 'surveyresults'])->name(
 
 Route::get('/surveydata/{surveyquestioncategory}', [SurveyController::class, 'surveydata'])->name('tabledata');
 
+
+Route::get('viewsurveys', [SurveyController::class, 'viewsurveys']);
 /*
 public function showsurvey(Survey $surveys, Question $questions)
     {

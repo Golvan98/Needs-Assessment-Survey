@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
-            $table->char('name');
+            $table->char('name')->unique();
             $table->integer('school_year');
             $table->boolean('active');
             $table->timestamps();

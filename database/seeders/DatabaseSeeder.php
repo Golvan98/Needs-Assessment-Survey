@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {    
 
-      $surveys = Survey::factory(2)->create();
+      $surveys = Survey::factory(4)->create();
           
       foreach ($surveys as $survey) 
       {
