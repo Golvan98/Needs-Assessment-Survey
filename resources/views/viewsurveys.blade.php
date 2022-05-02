@@ -25,7 +25,7 @@
                 
                 <tr class="space-x-4">
 
-    
+                <th> <a href="/surveyresults"> <button  class="w-48 h-12 bg-gray-500 ml-2 mr-12 rounded-xl border border-black mt-2"> All Surveys </th> </a>
 
                 @foreach($surveys as $survey)  
                                
