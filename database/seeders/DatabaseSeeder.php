@@ -9,6 +9,8 @@ use App\Models\SurveyQuestion;
 use App\Models\Student;
 use App\Models\SurveyResponses;
 use App\Models\SurveyResponseAnswers;
+use App\Models\Department;
+use App\Models\College;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DatabaseSeeder extends Seeder
@@ -22,6 +24,7 @@ class DatabaseSeeder extends Seeder
     {    
 
       $surveys = Survey::factory(4)->create();
+      $colleges = College::factory(7)->create();
           
       foreach ($surveys as $survey) 
       {
@@ -44,10 +47,12 @@ class DatabaseSeeder extends Seeder
                                                              ]);            
                                   foreach($students as $student)
                                   {
+                                    
                                     $surveyresponse->update(['survey_id' => $survey->id,
                                     'student_id' => $student->id
                                                            ]);
                                   }
+
                               }            
                         }
         }   

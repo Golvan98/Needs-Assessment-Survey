@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->char('departmentname');
-            $table->char('coursename');
-            $table->char('coursecode');
+            $table->char('departmentname')->unique();
+            $table->char('coursename')->unique();
+            $table->char('coursecode')->unique();
             $table->foreignId('college_id')->nullable();
             $table->timestamps();
         });
