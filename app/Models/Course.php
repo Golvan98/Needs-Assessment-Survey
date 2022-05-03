@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class Course extends Model
 {
     use HasFactory;
-
-
-    public function College()
+    public function Student()
     {
-        return $this->belongsTo(College::class);
+        return $this->hasMany(Course::class);
     }
-
 }

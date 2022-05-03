@@ -18,10 +18,7 @@ class DepartmentFactory extends Factory
     {
         return [
             //
-            'departmentname' => $this->faker->randomElement(['CS', 'IS', 'IT', 'CA',]),
-            'coursename' => $this->faker->randomElement(['Bachelor of Science in Computer Science', 'Bachelor of Science in Information Technology', 'Bachelor of Science in Information Systems', 'Bachelor of Science in Information Technology', 'Bachelor of Science in Computer Applications']),
-            'coursecode' => $this->faker->randomElement(['BSCS', 'BSIS', 'BSIT', 'BSCA', ]),
-            
+            'departmentname' => $this->faker->unique()->randomElement(['Department of Computer Science', 'Department of Information Systems', 'Department of Information Technology', 'Department of Computer Applications',]),
         ];
     }
 }

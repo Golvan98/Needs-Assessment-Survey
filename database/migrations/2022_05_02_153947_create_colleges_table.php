@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('colleges', function (Blueprint $table) {
             $table->id();
-            $table->char('collegename')->unique();
-            $table->char('collegecode')->unique();
+            $table->string('collegename')->unique();
+            $table->string('collegecode')->unique();
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ class Student extends Model
         return $this->hasMany(SurveyResponses::class);
     }
 
-    public function Department()
+    public function Course()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Course::class);
     }
 }

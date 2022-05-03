@@ -22,19 +22,11 @@ class CollegeFactory extends Factory
 
 
 
-        $colleges = [
+        $college = [
             'collegecode' =>$collegecodes,
-            'collegename' => $this->faker->unique()->randomElement(['College of Computer Studies', 'College of Arts and Social Sciences', 'College of Science and Mathematics', 'College of Business Adminstration', 'College of Education', 'College of Nursing']),
+            'collegename' => $this->faker->unique()->randomElement(['College of Engineering', 'College of Computer Studies',  'College of Arts and Social Sciences', 'College of Science and Mathematics', 'College of Business Adminstration', 'College of Education', 'College of Nursing']),
         ];
 
-
-        foreach($colleges as $college)
-        {
-            if(['collegecode'] == 'COE')
-            {
-                $college['collegename'] = $this->faker->randomElement(['College of Engineering']);
-            }
-        }
 
         return $college;
     }

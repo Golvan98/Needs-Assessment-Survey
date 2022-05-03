@@ -11,6 +11,7 @@ use App\Models\SurveyResponses;
 use App\Models\SurveyResponseAnswers;
 use App\Models\Department;
 use App\Models\College;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DatabaseSeeder extends Seeder
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
 
       $surveys = Survey::factory(4)->create();
       $colleges = College::factory(7)->create();
-          
+      Department::factory(4)->create();
+      Course::factory(4)->create();
       foreach ($surveys as $survey) 
       {
         $questions = SurveyQuestion::factory(8)->create();                     
