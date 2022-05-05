@@ -18,15 +18,43 @@ class CollegeFactory extends Factory
     public function definition()
     {
         
-         $collegecodes = $this->faker->unique()->randomElement(['COE', 'CCS', 'CASS', 'CBAA', 'CSM', 'CED', 'CON']);
+         $collegecode = $this->faker->unique()->randomElement(['COE', 'CCS', 'CASS', 'CBAA', 'CSM', 'CED', 'CON']);
 
 
 
         $college = [
-            'collegecode' =>$collegecodes,
-            'collegename' => $this->faker->unique()->randomElement(['College of Engineering', 'College of Computer Studies',  'College of Arts and Social Sciences', 'College of Science and Mathematics', 'College of Business Adminstration', 'College of Education', 'College of Nursing']),
+            'collegecode' =>$collegecode,
         ];
+        
 
+        if($collegecode == 'COE')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Engineering']);
+        }
+        if($collegecode == 'CCS')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Computer Science']);
+        }
+        if($collegecode == 'CASS')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Arts and Social Sciences']);
+        }
+        if($collegecode == 'CBAA') 
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Economics, Business and Accountancy']);
+        }
+        if($collegecode == 'CSM')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Science and Mathematics']);
+        }
+        if($collegecode == 'CED')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Education']);
+        }
+        if($collegecode == 'CON')
+        {
+            $college['collegename'] = $this->faker->randomElement(['College of Nursing']);
+        }
 
         return $college;
     }
