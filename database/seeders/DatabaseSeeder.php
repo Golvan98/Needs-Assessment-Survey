@@ -14,6 +14,7 @@ use App\Models\College;
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Faker\Factory as Faker;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -24,10 +25,38 @@ class DatabaseSeeder extends Seeder
     public function run()
     {    
 
+      $this->faker = Faker::create();
+      $examplefakerofnumber = $this->faker->randomDigit();
+      
+
+      $COE = College::factory()->create([
+        'id' => 1,
+        'collegename' => 'College of Engineering',
+        'collegecode' => 'COE'
+      ]);
+
+      $coedepartments = Department::factory(5)->create([
+        
+        'college_id' => $COE->id,
+        'departmentname' => NULL
+      ]);
+      
+      foreach($coedepartments as $coedepartment)
+      {
+        $coedepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Computer Engineering', 'Ceramics Engineering'])
+        ]);
+      }
+
+
+
+
+
+
+
+      $courses = Course::factory(4)->create();
       $surveys = Survey::factory(4)->create();
-      $colleges = College::factory(7)->create();
-      Department::factory(4)->create();
-      Course::factory(4)->create();
+
       foreach ($surveys as $survey) 
       {
         $questions = SurveyQuestion::factory(8)->create();                     

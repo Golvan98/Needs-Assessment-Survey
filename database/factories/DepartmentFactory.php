@@ -16,9 +16,13 @@ class DepartmentFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
-            'departmentname' => $this->faker->unique()->randomElement(['Department of Computer Science', 'Department of Information Systems', 'Department of Information Technology', 'Department of Computer Applications',]),
-        ];
+        $collegeid = NULL;
+
+        $department = [
+            'college_id' => $collegeid,
+            'departmentname' => $this->faker->word()      
+             ];
+
+        return $department;
     }
 }

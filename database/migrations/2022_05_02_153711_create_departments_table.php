@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('college_id')->nullable();
-            $table->char('departmentname')->unique();         
+            $table->char('departmentname')->unique()->nullable();        
             $table->timestamps();
         });
     }
