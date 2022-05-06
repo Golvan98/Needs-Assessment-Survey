@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         'college_id' => $COE->id,
         'departmentname' => NULL
       ]);
-      
+    
       foreach($coedepartments as $coedepartment)
       {
         $coedepartment->update([
@@ -48,9 +48,113 @@ class DatabaseSeeder extends Seeder
         ]);
       }
 
+      $CCS = College::factory()->create([
+        'id' => 2,
+        'collegename' => 'College of Computer Science',
+        'collegecode' => 'CCS'
+      ]);
 
+      $ccsdepartments = Department::factory(4)->create([
+        'college_id' => $CCS->id,
+        'departmentname' => NULL
+      ]);
 
+      foreach($ccsdepartments as $ccsdepartment)
+      {
+        $ccsdepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Computer Science', 'Information Technology', 'Information Systems', 'Computer Application'])
+        ]);
+      }
 
+      $CASS = College::factory()->create([
+        'id' => 3,
+        'collegename' => 'College of Social Arts and Sciences',
+        'collegecode' => 'CASS'
+      ]);
+
+      $cassdepartments = Department::factory(7)->create([
+        'college_id' => $CASS->id,
+        'departmentname' => NULL
+      ]);
+
+      foreach($cassdepartments as $cassdepartment)
+      {
+        $cassdepartment->update([
+          'departmentname' =>$this->faker->unique()->randomElement(['English', 'Filipino', 'Social Science', 'Psychology', 'History', 'Political Science', 'Philosophy'])
+        ]);
+      }
+
+      $CBAA = College::factory()->create([
+        'id' => 4,
+        'collegename' => 'College of Economics, Business and Administration',
+        'collegecode' => 'CBAA'
+      ]);
+
+      $cbaadepartments = Department::factory(6)->create([
+        'college_id' => $CBAA->id,
+        'departmentname' => NULL
+      ]);
+
+      foreach($cbaadepartments as $cbaadepartment)
+      {
+        $cbaadepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Economics', 'Accountancy', 'Hospitality Management', 'Entrepreneurship', 'Business Economics', 'Marketing Management'])
+        ]);
+      }
+
+      $CED = College::factory()->create([
+        'id' => 5,
+        'collegename' => 'College of Education',
+        'collegecode' => 'CED'
+      ]);
+
+      $ceddepartments = Department::factory(4)->create([
+        'college_id' => $CED->id,
+        'departmentname' => NULL
+      ]);
+
+      foreach($ceddepartments as $ceddepartment)
+      {
+        $ceddepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Science and Mathematics Education', 'Professional Education', 'Physical Education', 'Technology Teacher Education'])
+        ]);
+      }
+
+      $CSM = College::factory()->create([
+        'id' => 6,
+        'collegename' => 'College of Science and Mathematics',
+        'collegecode' => 'CSM'
+      ]);
+
+      $csmdepartments = Department::factory(4)->create([
+        'college_id' => $CSM->id,
+        'departmentname' => NULL
+      ]);
+
+      foreach($csmdepartments as $csmdepartment)
+      {
+        $csmdepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Biological Science', 'Chemistry', 'Mathematics and Statistics', 'Physics'])
+        ]);
+      }
+
+      $CON = College::factory()->create([
+        'id' => 7,
+        'collegename' => 'College of Nursing',
+        'collegecode' => 'CON'
+      ]);
+
+      $condepartments = department::factory(1)->create([
+        'college_id' => $CON->id,
+        'departmentname' => NULL
+      ]);
+
+      foreach($condepartments as $condepartment)
+      {
+        $condepartment->update([
+          'departmentname' => $this->faker->unique()->randomElement(['Nursing'])
+        ]);
+      }
 
 
 
