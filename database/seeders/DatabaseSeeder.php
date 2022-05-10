@@ -255,7 +255,7 @@ class DatabaseSeeder extends Seeder
         'collegecode' => 'CED'
       ]);
 
-      $ceddepartments = Department::factory(4)->create([
+      $ceddepartments = Department::factory(3)->create([
         'college_id' => $CED->id,
         'departmentname' => NULL
       ]);
@@ -263,8 +263,61 @@ class DatabaseSeeder extends Seeder
       foreach($ceddepartments as $ceddepartment)
       {
         $ceddepartment->update([
-          'departmentname' => $this->faker->unique()->randomElement(['Science and Mathematics Education', 'Professional Education', 'Physical Education', 'Technology Teacher Education'])
+          'departmentname' => $this->faker->unique()->randomElement(['Science and Mathematics Education', 'Language Education', 'Physical Education'])
         ]);
+
+                  if($ceddepartment->departmentname == 'Science and Mathematics Education')
+                  {
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Education in Science and Mathematics',
+                      'coursecode' => 'BEED SCI MAT',
+                    ]);
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Secondary Education major in Chemistry',
+                      'coursecode' => 'BSED CHEM'
+                    ]);
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Secondary Education major in Biology',
+                      'coursecode' => 'BSED BIO'
+                    ]);                  
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Secondary Education major in Mathematics',
+                      'coursecode' => 'BSED MATH'
+                    ]);
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Secondary Education major in Physics',
+                      'coursecode' => 'BSED PHYS'
+                    ]);
+                  }
+
+                  if($ceddepartment->departmentname == 'Language Education')
+                  {
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Education in Language Education',
+                      'coursecode' => 'BEED Lang Ed'
+                    ]);
+                    Course::factory()->create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Secondary Education major in Filipino',
+                      'coursecode' => 'BSED FIL'
+                    ]);
+                  }
+
+                  if($ceddepartment->departmentname == 'Physical Education')
+                  {
+                    Course::factory()->Create([
+                      'department_id' => $ceddepartment->id,
+                      'coursename' => 'Bachelor of Education in Physical Education',
+                      'coursecode' => 'BPED'
+                    ]);
+                  }
+
       }
 
       $CSM = College::factory()->create([
@@ -283,6 +336,60 @@ class DatabaseSeeder extends Seeder
         $csmdepartment->update([
           'departmentname' => $this->faker->unique()->randomElement(['Biological Science', 'Chemistry', 'Mathematics and Statistics', 'Physics'])
         ]);
+              if($csmdepartment->departmentname =='Biological Science')
+              {
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Marine Biology',
+                  'coursecode' => 'BSMARINE BIO'
+                ]);
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in General Biology',
+                  'coursecode' => 'BSGEN BIO'
+                ]);
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Botany Biology',
+                  'coursecode' => 'BSBOTANY BIO'
+                ]);
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Zoology Biology',
+                  'coursecode' => 'BSZOOLOGY BIO'
+                ]);
+              }
+              if($csmdepartment->departmentname == 'Chemistry')
+              {
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Chemistry',
+                  'coursecode' => 'BSCHEM'
+                ]);
+              }
+              if($csmdepartment->departmentname =='Mathematics and Statistics')
+              {
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Mathematics',
+                  'coursecode' => 'BSMATH'
+                ]);
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Statistics',
+                  'coursecode' => 'BSSTAT'
+                ]);
+              }
+              if($csmdepartment->departmentname =='Physics')
+              {
+                Course::factory()->create([
+                  'department_id' => $csmdepartment->id,
+                  'coursename' => 'Bachelor of Science in Physics',
+                  'coursecode' => 'BSPHYSICS'
+                ]);
+              }
+
+
       }
 
       $CON = College::factory()->create([
@@ -295,19 +402,26 @@ class DatabaseSeeder extends Seeder
         'college_id' => $CON->id,
         'departmentname' => NULL
       ]);
+            
 
       foreach($condepartments as $condepartment)
       {
         $condepartment->update([
           'departmentname' => $this->faker->unique()->randomElement(['Nursing'])
         ]);
+
+              if($condepartment->departmentname =='Nursing')
+              {
+                Course::factory()->create([
+                  'department_id' => $condepartment->id,
+                  'coursename' => 'Bachelor of Science in Nursing',
+                  'coursecode' => 'BSNURSING'
+                ]);
+              }
       }
 
 
 
-
-
-      $courses = Course::factory(4)->create();
       $surveys = Survey::factory(4)->create();
 
       foreach ($surveys as $survey) 
