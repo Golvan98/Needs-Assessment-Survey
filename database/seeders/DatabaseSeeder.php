@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         'collegecode' => 'COE'
       ]);
 
-      $coedepartments = Department::factory(5)->create([        
+      $coedepartments = Department::factory(6)->create([        
         'college_id' => $COE->id,
         'departmentname' => NULL
       ]);
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
       foreach($coedepartments as $coedepartment)
       {
         $coedepartment->update([
-          'departmentname' => $this->faker->unique()->randomElement(['Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Computer Engineering', 'Ceramics Engineering'])        
+          'departmentname' => $this->faker->unique()->randomElement(['Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Computer Engineering', 'Ceramics Engineering', 'Chemical Engineering'])        
         ]);
         
                 if ($coedepartment->departmentname =='Mechanical Engineering')
@@ -73,6 +73,30 @@ class DatabaseSeeder extends Seeder
                     'coursecode' => $this->faker->randomElement(['BSCE'])
                   ]);
                 }
+                if($coedepartment->departmentname == 'Computer Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Computer Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSCPE'])
+                  ]);
+                }
+                if($coedepartment->departmentname == 'Ceramics Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Ceramics Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSCERE'])
+                  ]);
+                }
+                if($coedepartment->departmentname == 'Chemical Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Chemical Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSCHE'])
+                  ]);
+                }
       }
 
       $CCS = College::factory()->create([
@@ -93,6 +117,41 @@ class DatabaseSeeder extends Seeder
         $ccsdepartment->update([
           'departmentname' => $this->faker->unique()->randomElement(['Computer Science', 'Information Technology', 'Information Systems', 'Computer Application'])
         ]);
+
+              if($ccsdepartment->departmentname == 'Computer Science')
+              {
+                Course::factory()->create([
+                'department_id' => $ccsdepartment->id,
+                'coursename' => 'Bachelor of Science in Computer Science',
+                'coursecode' => 'BSCS'
+              ]);
+              }
+
+              if($ccsdepartment->departmentname == 'Information Technology')
+              {
+              Course::factory()->create([
+                'department_id' => $ccsdepartment->id,
+                'coursename' => 'Bachelor of Science in Information Technology',
+                'coursecode' => 'BSIT'
+              ]);
+              }
+              if($ccsdepartment->departmentname =='Information Systems')
+              {
+              Course::factory()->create([
+                'department_id' => $ccsdepartment->id,
+                'coursename' => 'Bachelor of Science in Information Systems',
+                'coursecode' => 'BSIS'
+              ]);
+              }
+
+              if($ccsdepartment->departmentname =='Computer Application')
+              {
+                Course::factory()->create([
+                  'department_id' => $ccsdepartment->id,
+                  'coursename' => 'Bachelor of Science in Computer Application',
+                  'coursecode' => 'BSCA'
+                ]);
+              }
       }
 
       $CASS = College::factory()->create([
