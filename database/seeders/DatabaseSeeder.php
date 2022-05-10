@@ -170,6 +170,65 @@ class DatabaseSeeder extends Seeder
         $cassdepartment->update([
           'departmentname' =>$this->faker->unique()->randomElement(['English', 'Filipino', 'Social Science', 'Psychology', 'History', 'Political Science', 'Philosophy'])
         ]);
+
+              if($cassdepartment->departmentname == 'English')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Arts in English Language Studies',
+                  'coursecode' => 'BA ELS',
+                ]);
+              }
+
+              if($cassdepartment->departmentname == 'Filipino')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Arts in Filipino',
+                  'coursecode' => 'BA FIL',
+                ]);
+              }
+              if($cassdepartment->departmentname == 'Social Science')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Arts in Sociology',
+                  'coursecode' => 'BA SOCIO'
+                ]);
+              }
+              if($cassdepartment->departmentname == 'Psychology')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Arts in Psychology',
+                  'coursecode' => 'BA PSYCH'
+                ]);
+              }
+              if($cassdepartment->departmentname == 'History')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Arts in History',
+                  'coursecode' => 'BA HISTORY'
+                ]);
+              }
+              if($cassdepartment->departmentname == 'Political Science')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Science in Political Science',
+                  'coursecode' => 'BA POLSCI'
+                ]);
+              }
+              if($cassdepartment->departmentname =='Philosophy')
+              {
+                Course::factory()->create([
+                  'department_id' => $cassdepartment->id,
+                  'coursename' => 'Bachelor of Science in Philosophy',
+                  'coursecode' => 'BS PS'
+                ]);
+              }
+
       }
 
       $CBAA = College::factory()->create([
