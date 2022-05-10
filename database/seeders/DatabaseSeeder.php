@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
 
       $this->faker = Faker::create();
       $examplefakerofnumber = $this->faker->randomDigit();
-      
+            
+
 
       $COE = College::factory()->create([
         'id' => 1,
@@ -35,17 +36,43 @@ class DatabaseSeeder extends Seeder
         'collegecode' => 'COE'
       ]);
 
-      $coedepartments = Department::factory(5)->create([
-        
+      $coedepartments = Department::factory(5)->create([        
         'college_id' => $COE->id,
         'departmentname' => NULL
       ]);
-    
+   
       foreach($coedepartments as $coedepartment)
       {
         $coedepartment->update([
-          'departmentname' => $this->faker->unique()->randomElement(['Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Computer Engineering', 'Ceramics Engineering'])
+          'departmentname' => $this->faker->unique()->randomElement(['Mechanical Engineering', 'Electrical Engineering', 'Civil Engineering', 'Computer Engineering', 'Ceramics Engineering'])        
         ]);
+        
+                if ($coedepartment->departmentname =='Mechanical Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Mechanical Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSME'])
+                  ]);
+                }
+
+                if($coedepartment->departmentname =='Electrical Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Electrical Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSEE'])
+                  ]);
+                }
+
+                if($coedepartment->departmentname == 'Civil Engineering')
+                {
+                  Course::factory()->create([
+                    'department_id' => $coedepartment->id,
+                    'coursename' => $this->faker->randomElement(['Bachelor of Science in Civil Engineering']),
+                    'coursecode' => $this->faker->randomElement(['BSCE'])
+                  ]);
+                }
       }
 
       $CCS = College::factory()->create([
@@ -58,6 +85,8 @@ class DatabaseSeeder extends Seeder
         'college_id' => $CCS->id,
         'departmentname' => NULL
       ]);
+      
+
 
       foreach($ccsdepartments as $ccsdepartment)
       {
@@ -155,6 +184,8 @@ class DatabaseSeeder extends Seeder
           'departmentname' => $this->faker->unique()->randomElement(['Nursing'])
         ]);
       }
+
+
 
 
 

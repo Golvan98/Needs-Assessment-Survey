@@ -17,8 +17,8 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'coursename' => $this->faker->unique()->randomElement(['Bachelor of Science in Information Technology', 'Bachelor of Science in Information Systems', 'Bachelor of Science in Computer Science', 'Bachelor of Science in Computer Application']),
-            'coursecode' => $this->faker->unique()->randomElement(['BSIT', 'BSIS', 'BSCS', 'BSCA'])
+            'coursename' => $this->faker->unique()->word(),
+            'coursecode' => $this->faker->unique()->word()
         ];
     }
 }
