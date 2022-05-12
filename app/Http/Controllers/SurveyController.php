@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Survey;
 use App\Models\SurveyQuestion;
 use App\Models\SurveyResponseAnswer;
 use App\Models\SurveyResponses;
 use App\Models\Student;
+use App\Models\Course;
+
 class SurveyController extends Controller
 {
     public function showsurvey(Survey $surveys)
@@ -53,9 +55,22 @@ class SurveyController extends Controller
         return view('surveycategory')->with(['survey' => $survey, 'questioncategories' => $questioncategories]);
     }
 
-    public function viewsurveyresult($questioncategory)
+    public function viewsurveyresult($questioncategory) 
     {
-        return view('viewsurveyresult')->with(['questioncategory' => $questioncategory]);
+
+        $BSCA = Course::all()->where('coursecode', '=', 'BSCA')->pluck('id');
+        $BSCS = Course::all()->where('coursecode', '=', 'BSCS')->pluck('id');
+
+
+        $BSIT = Course::all()->where('coursecode', '=', 'BSIT')->pluck('id');
+        $BSITcount = Student::all()->whereIn('course_id', $BSIT)->count();
+        
+        
+        $BSCAcount = Student::all()->whereIn('course_id', $BSCA)->count();
+        $BSCScount = Student::all()->whereIn('course_id', $BSCS)->count();
+        
+
+        return view('viewsurveyresult')->with(['questioncategory' => $questioncategory, 'BSCAcount' => $BSCAcount, 'BSCScount' => $BSCScount]);
     }
 
 

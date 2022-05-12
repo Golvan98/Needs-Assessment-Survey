@@ -30,7 +30,9 @@
             {{$questioncategory}}
         </div>
 
-
+        @php  $BSIT = App\Models\Course::all()->where('coursecode', '=', 'BSIT')->pluck('id');
+              $BSITcount = App\Models\Student::all()->whereIn('course_id', $BSIT)->count();
+        @endphp 
 
 
         <div>
@@ -39,21 +41,23 @@
                 <tr>
                     <th class="text-left border border-black px-2"> BS Computer Applications </th>
 
-                        <th class="border border-black px-2"> 31 </th>
+                        <th class="border border-black px-2"> {{$BSCAcount}} </th>
                 </tr>
 
                 <tr>
                     <th class="text-left border border-black px-2"> BS Computer Science </th>
 
-                        <th class="border border-black px-2"> 31 </th>
+                        <th class="border border-black px-2"> {{$BSCScount}} </th>
                 </tr>
 
                 <tr>
                     <th class="text-left border border-black px-2"> BS Information Technology </th>
-
-                        <th class="border border-black px-2"> 31 </th>
+                   
+                        <th class="border border-black px-2"> 
+                           
+                        {{$BSITcount}} </th>
                 </tr>
-
+                
                 <tr>
                     <th class="text-left border border-black px-2"> BS Information Systems </th>
 

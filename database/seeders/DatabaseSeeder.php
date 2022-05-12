@@ -436,7 +436,9 @@ class DatabaseSeeder extends Seeder
           foreach($surveyresponseanswers as $surveyresponseanswer)
                         {
                           $surveyresponses = SurveyResponses::factory(1)->create(); 
-                          $students = Student::factory(1)->create();          
+                          $students = Student::factory(1)->create([
+                            'course_id' => $this->faker->numberBetween(1,34)
+                          ]);          
                           foreach($surveyresponses as $surveyresponse)
                               {
                                 $surveyresponseanswer->update([
@@ -446,7 +448,7 @@ class DatabaseSeeder extends Seeder
                                   foreach($students as $student)
                                   {
                                     
-                                    $surveyresponse->update(['survey_id' => $survey->id,
+                                    $surveyresponse->update(['survey_id' => $survey->id,                                   
                                     'student_id' => $student->id
                                                            ]);
                                   }
