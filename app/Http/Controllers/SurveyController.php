@@ -9,6 +9,7 @@ use App\Models\SurveyResponseAnswer;
 use App\Models\SurveyResponses;
 use App\Models\Student;
 use App\Models\Course;
+use App\Models\Department;
 
 class SurveyController extends Controller
 {
@@ -61,10 +62,13 @@ class SurveyController extends Controller
         $BSCA = Course::all()->where('coursecode', '=', 'BSCA')->pluck('id');
         $BSCS = Course::all()->where('coursecode', '=', 'BSCS')->pluck('id');
 
+        $CoeDepartments = Department::all()->where('college_id', '=', 1)->pluck('id');
+       
+        $CoeCourses = Course::all()->whereIn('department_id', $CoeDepartments)->pluck('id');
 
-        $BSIT = Course::all()->where('coursecode', '=', 'BSIT')->pluck('id');
-        $BSITcount = Student::all()->whereIn('course_id', $BSIT)->count();
-        
+        $CoeStudents = Student::all()->whereIn('course_id', $CoeCourses)->pluck('firstname');
+
+        dd($CoeStudents);
         
         $BSCAcount = Student::all()->whereIn('course_id', $BSCA)->count();
         $BSCScount = Student::all()->whereIn('course_id', $BSCS)->count();
