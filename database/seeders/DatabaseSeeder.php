@@ -247,6 +247,61 @@ class DatabaseSeeder extends Seeder
         $cbaadepartment->update([
           'departmentname' => $this->faker->unique()->randomElement(['Economics', 'Accountancy', 'Hospitality Management', 'Entrepreneurship', 'Business Economics', 'Marketing Management'])
         ]);
+
+            if($cbaadepartment->departmentname == 'Economics')
+            {
+              Course::factory()->create([
+                'department_id' => $cbaadepartment->id,
+                'coursename' => 'Bachelor of Science in Economics',
+                'coursecode' => 'BS ECON'
+              ]);
+            }
+
+            if($cbaadepartment->departmentname == 'Accountancy')
+            {
+              Course::factory()->create([
+              'department_id' => $cbaadepartment->id,
+              'coursename' => 'Bachelor of Science in Accountancy',
+              'coursecode' => 'BSA'
+              ]);
+            }
+
+            if($cbaadepartment->departmentname =='Hospitality Management')
+            {
+              Course::factory()->create([
+                'department_id' => $cbaadepartment->id,
+                'coursename' => 'Bachelor of Science in Hospitality Management',
+                'coursecode' => 'BS HM'
+              ]);
+            }
+
+            if($cbaadepartment->departmentname =='Entrepreneurship')
+            {
+              Course::factory()->create([
+                'department_id' => $cbaadepartment->id,
+                'coursename' => 'Bachelor of Science in Entrepreneurship',
+                'coursecode' => 'BS ENTREP'
+              ]);
+            }
+
+            if($cbaadepartment->departmentname =='Business Economics')
+            {
+              Course::factory()->create([
+              'department_id' => $cbaadepartment->id,
+              'coursename' => 'Bachelor of Science in Business Economics',
+              'coursecode' => 'BSBA-B.ECON'
+              ]);
+            }
+
+            if($cbaadepartment->departmentname == 'Marketing Management')
+            {
+              Course::factory()->create([
+                'department_id' => $cbaadepartment->id,
+                'coursename' => 'Bachelor of Science in Marketing Management',
+                'coursecode' => 'BSBA-MKT MGT'
+              ]);
+            }
+
       }
 
       $CED = College::factory()->create([
