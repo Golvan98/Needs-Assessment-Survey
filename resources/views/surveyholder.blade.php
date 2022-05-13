@@ -18,7 +18,7 @@
                     <div class="flex-auto space-y-2"> 
                     <form method="POST" action="#"> 
                     @csrf
-                    @method('DELETE')
+                    @method('PATCH')
                     {{$surveyquestions->question}} 
 
                     <input class=""> 

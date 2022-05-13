@@ -14,11 +14,11 @@ use App\Models\Department;
 class SurveyController extends Controller
 {
 
-    public function testsurvey(Survey $surveys)
+    public function testsurvey(Survey $survey)
     {
       
 
-        return view('/testsurvey');
+        return view('/testsurvey')->with(['survey' => $survey]);
         
     }
 

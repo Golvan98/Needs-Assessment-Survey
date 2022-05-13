@@ -12,7 +12,7 @@
         <article class="flex-auto items-center justify-center text-center bg-gray-300 flex-auto font-bold border border-red-500">
             <a href="/survey/{{$survey->id}}">
                 <div>
-                     {{$survey->survey_name}} 
+                     {{$survey->name}} 
                      <section class="hero container mx-auto flex justify-center">
                         <img src="{{ asset('storage/manage.png') }}" alt="description of myimageee"> 
                     </section>
