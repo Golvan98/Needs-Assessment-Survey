@@ -26,6 +26,8 @@ Route::get('/home', function(){
     return view('/homepage');
 });
 
+Route::get('testsurvey/{survey}', [SurveyController::class, 'testsurvey']);
+
 Route::get('/survey/{surveys}', [SurveyController::class, 'showsurvey']);
 
 Route::get('/surveylist', [SurveyController::class, 'listsurvey']);

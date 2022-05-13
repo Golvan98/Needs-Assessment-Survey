@@ -13,6 +13,16 @@ use App\Models\Department;
 
 class SurveyController extends Controller
 {
+
+    public function testsurvey(Survey $surveys)
+    {
+      
+
+        return view('/testsurvey');
+        
+    }
+
+
     public function showsurvey(Survey $surveys)
     {
         
