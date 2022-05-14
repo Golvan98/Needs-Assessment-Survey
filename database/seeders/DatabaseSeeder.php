@@ -492,7 +492,8 @@ class DatabaseSeeder extends Seeder
                         {
                           $surveyresponses = SurveyResponses::factory(1)->create(); 
                           $students = Student::factory(1)->create([
-                            'course_id' => $this->faker->numberBetween(1,34)
+                            'course_id' => $this->faker->numberBetween(1,34),
+                            'lastname' => 'zalsos',
                           ]);          
                           foreach($surveyresponses as $surveyresponse)
                               {

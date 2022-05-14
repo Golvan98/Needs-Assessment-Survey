@@ -14,6 +14,14 @@ use App\Models\Department;
 class SurveyController extends Controller
 {
 
+
+
+
+
+
+
+
+    
     public function testsurvey(Survey $survey)
     {
       
@@ -22,6 +30,7 @@ class SurveyController extends Controller
         
     }
 
+   
 
     public function showsurvey(Survey $surveys)
     {

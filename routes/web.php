@@ -1,7 +1,9 @@
 <?php
-
+use illuminate\Support\Facades\Auth;
+use illuminate\Contracts\Auth\user as Authenticatable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\StudentController;
 use App\Models\Survey;
 use App\Models\SurveyQuestion;
 use App\Models\SurveyResponseAnswer;
@@ -25,6 +27,11 @@ Route::get('/', function () {
 Route::get('/home', function(){
     return view('/homepage');
 });
+
+
+Route::get('/login', [StudentController::class, 'testlogin']);
+
+Route::post('/sessionlogin', [StudentController::class, 'sessionlogin']);
 
 Route::get('testsurvey/{survey}', [SurveyController::class, 'testsurvey']);
 

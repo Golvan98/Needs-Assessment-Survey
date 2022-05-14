@@ -10,7 +10,7 @@
 
 {{ $surveyquestionz->question }}
 
-<input class="mb-2 mr-2">         </input>
+<input name="{{$surveyquestionz}}" class="mb-2 mr-2">         </input>
 <br>
 
 @endforeach
