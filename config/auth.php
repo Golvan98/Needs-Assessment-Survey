@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'api',
+        'passwords' => 'students',
     ],
 
     /*
@@ -36,9 +36,9 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'api' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'students',
         ],
     ],
 
@@ -60,9 +60,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'students' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Student::class,
         ],
 
         // 'users' => [
@@ -85,11 +85,10 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
+        'students' => [
+            'provider' => 'students',
+            'table' => 'students',
             'expire' => 60,
             'throttle' => 60,
         ],

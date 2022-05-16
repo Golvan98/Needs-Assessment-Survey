@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->string('password');
             $table->integer('year');
             $table->string('scholarship_status');
             $table->timestamps();

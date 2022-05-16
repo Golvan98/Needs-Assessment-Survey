@@ -17,16 +17,16 @@ class StudentController extends Controller
     {
         $data = request()->validate([
             'firstname' => 'required',
-            'lastname' => 'required',
+            'password' => 'required',
         ]);
 
 
         if (auth()->attempt($data)) {
             
-            return redirect('/home');
+            return redirect('/homepage');
                                           }
 
-       return view('/home')->withErrors(['email' => 'Wrong Email Boie']);
+      
     
     }
 

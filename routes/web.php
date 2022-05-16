@@ -1,6 +1,6 @@
 <?php
 use illuminate\Support\Facades\Auth;
-use illuminate\Contracts\Auth\user as Authenticatable;
+use illuminate\Contracts\Auth\Student as Authenticatable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\StudentController;
